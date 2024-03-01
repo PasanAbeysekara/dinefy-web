@@ -1,0 +1,8 @@
+{
+    "env": {
+        "name": "#{envName}"
+     },
+    "topItemLimit": {
+        "limit": "#{topItemLimit}"
+     }
+}

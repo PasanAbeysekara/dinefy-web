@@ -1,0 +1,154 @@
+<ng-container *ngIf="type == 'product'">
+  <mat-tab-group animationDuration="0ms">
+    <mat-tab *ngFor="let menu of menus" label="{{menu.name}}">
+      <div class="tab-content-container">
+        <div class="row">
+          <div *ngFor="let category of menu.menuCategories">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="erg-menu__title">{{category.name}}</div>
+            </div>
+            <div class="erg-menu">
+              <div class="row" id="c">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngFor="let choice of category.categoryChoices">
+
+                  <div class="erg-menu__menu-item">
+                    <div class="erg-menu__menu-item__title">
+                      <div class="heading">{{choice.name}}</div>
+                      <div class="erg-menu__menu-item__title__text">{{choice.description}}
+                      </div>
+                    </div>
+                    <div class="heading">
+                      <div class="heading">{{choice.amount | currency: choice.amountCurrency:true }}</div>
+                    </div>
+                  </div>
+
+                  <!--ng-template [ngIf]="type == 'checkout'">
+                  <div class="erg-menu__menu-item erg-menu__menu-item__border">
+                    <div class="erg-menu__menu-item__title">
+                      <div class="heading">{{choice.name}}</div>
+                      <div class="erg-menu__menu-item__title__text">{{choice.description}}
+                      </div>
+                      <div class="erg-menu__menu-item__price">LKR590.00</div>
+                    </div>
+                    <div class="heading">
+                      <button class="shadow_none" mat-mini-fab color="primary" [matMenuTriggerFor]="size">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                      <mat-menu #size="matMenu">
+                        <button mat-menu-item (click)="addToBasket()">Large</button>
+                        <button mat-menu-item (click)="addToBasket()">Medium</button>
+                        <button mat-menu-item (click)="addToBasket()">Small</button>
+                      </mat-menu>
+                    </div>
+                  </div>
+                </ng-template-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</ng-container>
+
+
+<ng-container *ngIf="type == 'checkout'">
+  <mat-tab-group animationDuration="0ms">
+    <mat-tab *ngFor="let menu of menus" label="{{menu.name}}">
+      <div class="tab-content-container">
+        <div class="container-fluid">
+          <div class="row">
+            <div *ngFor="let category of menu.menuCategories">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="erg-menu__title">{{category.name}}</div>
+              </div>
+              <div class="erg-menu">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-4" *ngFor="let choice of category.categoryChoices">
+                    <div class="erg-menu__menu-item erg-menu__menu-item__border">
+                      <div class="erg-menu__menu-item__title">
+                        <div class="heading">{{choice.name}}</div>
+                        <div class="erg-menu__menu-item__title__text">{{choice.description}}
+                        </div>
+                        <div class="erg-menu__menu-item__price">
+                          {{choice.amount | currency: choice.amountCurrency:true }}</div>
+                      </div>
+                      <div class="heading">
+                        <button class="shadow_none" mat-mini-fab color="primary" [matMenuTriggerFor]="size">
+                          <mat-icon>add</mat-icon>
+                        </button>
+                        <mat-menu #size="matMenu">
+                          <!--div class="widget-spinner"-->
+                            <!--div class="labelWrapper">
+                              <div class="label label--primary">Adults</div>
+                              <div class="label label--secondary">Age above 12</div>
+                            </div-->
+                            <!--div class="spinnerWrapper">
+                              <div class="widgets-numberpicker__flipper">
+                                <button mat-icon-button class="erg-btn erg-btn-opBtn">
+                                  <mat-icon>remove</mat-icon>
+                                </button>
+                              </div>
+                              <div class="numberpicker__flipper-value">0</div>
+                              <div class="widgets-numberpicker__flipper">
+                                <button mat-icon-button class="erg-btn erg-btn-opBtn">
+                                  <mat-icon>add</mat-icon>
+                                </button>
+                              </div>
+                            </div>
+                          </div-->
+                          <button mat-menu-item (click)="addToBasket(choice.propChoiceId.choiceId , 'Large', choice.name, choice.amount, choice.amountCurrency)">Large</button>
+                          <button mat-menu-item (click)="addToBasket(choice.propChoiceId.choiceId , 'Medium', choice.name, choice.amount, choice.amountCurrency)">Medium</button>
+                          <button mat-menu-item (click)="addToBasket(choice.propChoiceId.choiceId , 'Small', choice.name, choice.amount, choice.amountCurrency)">Small</button>
+                        </mat-menu>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
+
+<ng-container *ngIf="type == 'fullmenu'">
+  <mat-tab-group animationDuration="0ms">
+    <mat-tab *ngFor="let menu of menus" label="{{menu.name}}">
+      
+      <div class="tab-content-container">
+        <div class="row">
+          <div *ngFor="let category of menu.menuCategories">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="erg-menu__title">{{category.name}}</div>
+            </div>
+            <div class="erg-menu">
+              <div class="row" id="c">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let choice of category.categoryChoices">
+
+                  <div class="erg-menu__menu-item">
+                    <div class="erg-menu__menu-item__title">
+                      <div class="heading">{{choice.name}}</div>
+                      <div class="erg-menu__menu-item__title__text">{{choice.description}}
+                      </div>
+                    </div>
+                    <div class="heading">
+                      <div class="heading">{{choice.amount | currency: choice.amountCurrency:true }}</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</ng-container>

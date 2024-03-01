@@ -1,0 +1,17 @@
+<div *appScrollSection="true; id:'Map'; title: 'Map'" class="section">
+    <div class="margin--top-l">
+        <div class="c-title c-title--border">
+            <div class="c-title--primary c-title--medium">Map</div>
+        </div>
+        <div class="row item-row margin--top-l">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="map-container" *ngIf="options.center.lat > 0">
+                    <google-map height="400px" [options]="options">
+                        <map-marker [position]="options.center"></map-marker>
+                    </google-map>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

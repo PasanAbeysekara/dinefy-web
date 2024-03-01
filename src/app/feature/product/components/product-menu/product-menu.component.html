@@ -1,0 +1,399 @@
+<div class="section" *appScrollSection="true; id:'Menu'; title: 'Menu'">
+  <div class="margin--top-l menuWrapper">
+
+    <div class="c-title c-title--border">
+      <div class="c-title--primary c-title--medium">Menu</div>
+      <button mat-button color="primary" (click)="goToFullMenuPage()">See All</button>
+    </div>
+
+    <app-shared-product-menu type="product" [menus]="menus"></app-shared-product-menu>
+    <!--mat-tab *ngFor="let menu of productMenus" label="{{menu.description}}">
+              <div class="tab-content-container">
+                <div class="row">
+                  <div *ngFor="let category of menu.menuCategories">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                      <div class="erg-menu__title">{{category.name}}</div>
+                    </div>
+                    <div class="erg-menu">
+                      <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngFor="let choice of category.categoryChoices">
+                         
+                          <div class="erg-menu__menu-item">
+                            <div class="erg-menu__menu-item__title">
+                              <div class="heading">{{choice.name}}</div>
+                              <div class="erg-menu__menu-item__title__text">{{choice.description}}
+                              </div>
+                            </div>
+                            <div class="heading">
+                              <div class="heading">LKR590.00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                          <div class="erg-menu__menu-item">
+                            <div class="erg-menu__menu-item__title">
+                              <div class="heading">2 Soft Boiled Eggs, Toast Fingers
+                              </div>
+                              <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                                SandwichBacon & Egg Sandwich Bacon
+                                & Egg Sandwich
+                              </div>
+                            </div>
+                            <div class="heading">
+                              <div class="heading">LKR400.00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                          <div class="erg-menu__menu-item">
+                            <div class="erg-menu__menu-item__title">
+                              <div class="heading">3 Nutella & Banana or Peanut Butter &
+                                Banana Sandwich</div>
+                              <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                                SandwichBacon & Egg Sandwich Bacon
+                                & Egg Sandwich
+                              </div>
+                            </div>
+                            <div class="heading">
+                              <div class="heading">LKR590.00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                          <div class="erg-menu__menu-item">
+                            <div class="erg-menu__menu-item__title">
+                              <div class="heading">4 Assorted Cereals of Your Choice,
+                                Banana & Honey*</div>
+                              <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                                SandwichBacon & Egg Sandwich Bacon
+                                & Egg Sandwich
+                              </div>
+                            </div>
+                            <div class="heading">
+                              <div class="heading">LKR590.00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                          <div class="erg-menu__menu-item">
+                            <div class="erg-menu__menu-item__title">
+                              <div class="heading">5 Bacon & Egg Sandwich</div>
+                              <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                                SandwichBacon & Egg Sandwich Bacon
+                                & Egg Sandwich
+                              </div>
+                            </div>
+                            <div class="heading">
+                              <div class="heading">LKR590.00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                          <div class="erg-menu__menu-item">
+                            <div class="erg-menu__menu-item__title">
+                              <div class="heading">6 Bacon & Egg Sandwich</div>
+                              <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                                SandwichBacon & Egg Sandwich Bacon
+                                & Egg Sandwich
+                              </div>
+                            </div>
+                            <div class="heading">
+                              <div class="heading">LKR590.00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                          <div class="erg-menu__menu-item">
+                            <div class="erg-menu__menu-item__title">
+                              <div class="heading">7 Soft Boiled Eggs, Toast Fingers
+                              </div>
+                              <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                                SandwichBacon & Egg Sandwich Bacon
+                                & Egg Sandwich
+                              </div>
+                            </div>
+                            <div class="heading">
+                              <div class="heading">LKR400.00</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="erg-menu__title">Lunch</div>
+                  </div>
+                  <div class="erg-menu">
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">1 Bacon & Egg Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich cdsssssssss
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">2 Soft Boiled Eggs, Toast Fingers
+                            </div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR400.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">3 Nutella & Banana or Peanut Butter &
+                              Banana Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">4 Assorted Cereals of Your Choice,
+                              Banana & Honey*</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">5 Bacon & Egg Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Al Carte Menu">
+              <div class="tab-content-container">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="erg-menu__title">Breakfast</div>
+                  </div>
+                  <div class="erg-menu">
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                       
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">1 Bacon & Egg Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich cdsssssssss
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">2 Soft Boiled Eggs, Toast Fingers
+                            </div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR400.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">3 Nutella & Banana or Peanut Butter &
+                              Banana Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">4 Assorted Cereals of Your Choice,
+                              Banana & Honey*</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">5 Bacon & Egg Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Beverage Menu">
+              <div class="tab-content-container">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="erg-menu__title">Breakfast</div>
+                  </div>
+                  <div class="erg-menu">
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                      
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">1 Bacon & Egg Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich cdsssssssss
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">2 Soft Boiled Eggs, Toast Fingers
+                            </div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR400.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">3 Nutella & Banana or Peanut Butter &
+                              Banana Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="erg-menu__title">Lunch</div>
+                  </div>
+                  <div class="erg-menu">
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                       
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">1 Bacon & Egg Sandwich</div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich cdsssssssss
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR590.00</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="erg-menu__menu-item">
+                          <div class="erg-menu__menu-item__title">
+                            <div class="heading">2 Soft Boiled Eggs, Toast Fingers
+                            </div>
+                            <div class="erg-menu__menu-item__title__text">Bacon & Egg
+                              SandwichBacon & Egg Sandwich Bacon
+                              & Egg Sandwich
+                            </div>
+                          </div>
+                          <div class="heading">
+                            <div class="heading">LKR400.00</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-tab-->
+
+    <div class="gradient-overlay"></div>
+    <div class="row menu-show-more">
+      <div class="col-12 col-sm-12 col-md-12 flex-container flex-container--center" menu-show-more>
+        <button class="menu-show-more" mat-stroked-button (click)="openMenu()">Show
+          More</button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div mat-ripple class="reservation-item">
+  <div class="reservation-item__details">
+    <div class="reservation-item__avatar">
+      <img [src]="reservation.image" alt="avatar">
+    </div>
+    <div class="reservation-item__label-wrapper">
+      <div class="body-typo-one body-typo-one--medium reservation-item__title">{{reservation.name}}</div>
+      <div class="body-typo-one">
+        <span class="body-typo-one--medium">{{reservation.date}}</span>&nbsp;<span
+          class="body-typo-one--secondary">{{reservation.time}},
+          {{reservation.username}}</span>
+      </div>
+      <div class="subtitle-two subtitle-two--secondary mb-xs">{{reservation.capacity}}</div>
+      <div class="flex-box-container flex-box-container--spaced">
+        <div class="reservation-item__price">{{reservation.price}}</div>
+        <div class="flex-box-container flex-box-container--veticle-center" matTooltip="Cancel">
+          <ng-container *ngIf="reservation.status == 'Cancel'">
+            <mat-icon class="mr-xs" color="warn">block</mat-icon>
+          </ng-container>
+          <ng-container *ngIf="reservation.status == 'Reserved'">
+            <mat-icon class="mr-xs" color="">check_circle_outline</mat-icon>
+          </ng-container>
+          <ng-container *ngIf="reservation.status == 'Booked'">
+            <mat-icon class="mr-xs" color="">check_circle</mat-icon>
+          </ng-container>
+          <ng-container *ngIf="reservation.status == 'Pending'">
+            <mat-icon class="mr-xs" color="">schedule</mat-icon>
+          </ng-container>
+
+          <span class="body-typo-two body-typo-two--secondary">{{reservation.status}}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="flex-box-container flex-box-container--spaced flex-box-container--veticle-center">
+    <div class="btn-list"></div>
+    <div class="btn-list">
+      <button mat-button color="warn">
+        <mat-icon class="mr-sm">cancel</mat-icon>Cancel
+      </button>
+      <button mat-button color="accent">
+        <mat-icon class="mr-sm">edit</mat-icon> Change
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="reservationItem">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #reservationItem="matMenu">
+        <button mat-menu-item>Cancel</button>
+        <button mat-menu-item>Change</button>
+      </mat-menu>
+    </div>
+  </div>
+
+</div>

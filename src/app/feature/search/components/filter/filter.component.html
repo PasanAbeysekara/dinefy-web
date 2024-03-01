@@ -1,0 +1,83 @@
+<div class="container filter-bar">
+    <div class="row">
+        <div class="col-12 ">
+            <div class="filter-chip-list">
+                <mat-form-field
+                    class="mat-chip mat-focus-indicator mat-primary mat-standard-chip input-select-chip filter-item"
+                    appearance="outline">
+                    <mat-select [formControl]="facilities" [(value)]="defaultValue" multiple
+                        placeholder="Facilities">
+                        <app-mat-select-search></app-mat-select-search>
+                        <mat-select-trigger>
+                            {{facilities.value ? facilities.value[0] : ''}}
+                            <span *ngIf="facilities.value?.length > 1">
+                                (+{{facilities.value.length - 1}}
+                                {{facilities.value?.length === 2 ? 'other' : 'others'}})
+                            </span>
+                        </mat-select-trigger>
+                        <mat-option *ngFor="let facility of facilityList" [value]="facility">{{facility}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field
+                    class="mat-chip mat-focus-indicator mat-primary mat-standard-chip input-select-chip filter-item"
+                    appearance="outline">
+                    <mat-select [formControl]="bankMultiCtrl" placeholder="Tags" [multiple]="true">
+                        <app-mat-select-search></app-mat-select-search>
+                        <mat-select-search ngDefaultControl [formControl]="bankMultiFilterCtrl"></mat-select-search>
+                        <mat-option *ngFor="let bank of filteredBanksMulti | async" [value]="bank">
+                            {{bank.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field
+                    class="mat-chip mat-focus-indicator mat-primary mat-standard-chip input-select-chip filter-item"
+                    appearance="outline">
+                    <mat-select [(value)]="selectedSort">
+                        <mat-option [value]="option.value" *ngFor="let option of sort">
+                            {{ option.viewValue }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-menu #sortByPrice="matMenu">
+                    <button mat-menu-item>
+                        Rating
+                    </button>
+                    <button mat-menu-item>
+                        Popularity
+                    </button>
+
+                </mat-menu>
+                <button class="filter-chip" mat-button [matMenuTriggerFor]="priceSlider"
+                    (menuOpened)="menuToggle(true)" (menuClosed)="menuToggle(false)">Price <mat-icon>
+                        arrow_drop_down</mat-icon></button>
+                <mat-menu #priceSlider="matMenu"
+                    class="erg-mat-menu erg-mat-menu--np erg-mat-menu--medium filter-panel">
+                    <div (click)="$event.stopPropagation()" class="mat-menu-body">
+                        <app-slider-wrapper></app-slider-wrapper>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Min Price</mat-label>
+                                    <input [(ngModel)]="minValue" matInput type="number">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Max Price</mat-label>
+                                    <input [(ngModel)]="maxValue" matInput type="number">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div (click)="$event.stopPropagation()" class="erg-mat-menu__footer">
+                        <button (click)="resetForm()" color="primary" mat-button>Clear</button>
+                        <button color="primary" mat-flat-button (click)="closeMyMenu()">Done</button>
+                    </div>
+                </mat-menu>
+                <button class="filter-chip" mat-button (click)="moreFilters()">More <mat-icon>filter_alt
+                    </mat-icon></button>
+
+            </div>
+        </div>
+    </div>
+</div>

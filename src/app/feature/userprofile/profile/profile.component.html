@@ -1,0 +1,93 @@
+<div class="profile-page container">
+    <mat-tab-group (selectedIndexChange)="test($event)">
+      <mat-tab label="General">
+        <div class="container mt-xl mb-xl">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+              
+                <app-user-details tab="general"></app-user-details>
+
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-9">
+              
+                <app-loyalty></app-loyalty>
+                
+                <app-reservations></app-reservations>
+
+              <!--div class="row">
+                <div class="col-8">
+                  <div class="c-title c-title--primary c-title--medium">Favourite Restaurents</div>
+                </div>
+                <div class="col-4 flex-box-container flex-box-container--end">
+                  <button mat-icon-button (click)="favPlaces.prev()">
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                  </button>
+                  <button mat-icon-button (click)="favPlaces.next()">
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <mat-divider class="pt-md pb-md"></mat-divider>
+              <owl-carousel-o [options]="favPlacesSlider"  #favPlaces>
+                  <ng-container >
+                    <ng-template *ngFor="let favPlaceItem of obs | async" class="slide" carouselSlide>
+                      <div  class="fav-item">
+                        <div class="fav-item__avatar">
+                          <img src="{{ favPlaceItem.imgUrl}}" alt="avatar">
+                        </div>
+                        <div class="fav-item__label-wrapper">
+                          <div class="fav-item__label-primary body-typo-one body-typo-one--medium">{{ favPlaceItem.title}}</div>
+                          <div class="fav-item__label-secondary subtitle-two subtitle-two--secondary">{{ favPlaceItem.subTitle}}</div>
+                          <app-rating-stars></app-rating-stars>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ng-container>
+                </owl-carousel-o-->
+                <app-fav-restaurents></app-fav-restaurents>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Booking History">
+        <div class="container">
+            <app-order-history
+              cols.xs="1"
+              cols.sm="1"
+              cols.md="2"
+              cols.lg="2"
+              cols.xl="2"
+            ></app-order-history>
+        </div>
+      </mat-tab>
+      <mat-tab label="Favourites">
+        <div class="container mt-xl mb-xl">
+
+          <!--app-fav-restaurents></app-fav-restaurents-->
+
+          <app-fav-food></app-fav-food>
+
+        </div>
+      </mat-tab>
+      <mat-tab label="Settings">
+        <div class="tab-container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+              
+                <app-user-details tab="settings"></app-user-details>
+
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-9">
+
+                <app-user-details-form></app-user-details-form>
+                
+            </div>
+          </div>
+        </div>
+
+      </mat-tab>
+    </mat-tab-group>
+</div>
+
+<app-footer></app-footer>
+

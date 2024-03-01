@@ -1,0 +1,182 @@
+<section id="Menu">
+    <div class="c-title">
+        <div class="c-title--primary c-title--medium">Menu</div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+
+            <app-shared-product-menu type="checkout" [menus] = "menus" (choiceSelected)="choiceSelectedHandler($event)"></app-shared-product-menu>
+            <!--mat-tab-group animationDuration="0ms">
+                <mat-tab label="Kids Menu">
+                    <div class="tab-content-container">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="erg-menu__title">Breakfast</div>
+                                </div>
+                                <div class="erg-menu">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                            <div class="erg-menu__menu-item erg-menu__menu-item__border">
+                                                <div class="erg-menu__menu-item__title">
+                                                    <div class="heading">Bacon & Egg Sandwich</div>
+                                                    <div class="erg-menu__menu-item__title__text">Bacon &
+                                                        Egg SandwichBacon & Egg SandwichBacon & Egg Sandwich
+                                                    </div>
+                                                     <div class="erg-menu__menu-item__price">LKR590.00</div>
+                                                </div>
+                                                <div class="heading">
+                                                    <button class="shadow_none" mat-mini-fab color="primary"
+                                                        [matMenuTriggerFor]="size">
+                                                        <mat-icon>add</mat-icon>
+                                                    </button>
+                                                    <mat-menu #size="matMenu">
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Large</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Medium</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Small</button>
+                                                    </mat-menu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                            <div class="erg-menu__menu-item erg-menu__menu-item__border">
+                                                <div class="erg-menu__menu-item__title">
+                                                    <div class="heading">Bacon & Egg Sandwich</div>
+                                                    <div class="erg-menu__menu-item__title__text">Bacon &
+                                                        Egg SandwichBacon & Egg SandwichBacon & Egg Sandwich
+                                                    </div>
+                                                    <div class="erg-menu__menu-item__price">LKR590.00</div>
+                                                </div>
+                                                <div class="heading">
+                                                    <button class="shadow_none" mat-mini-fab color="primary"
+                                                        [matMenuTriggerFor]="size">
+                                                        <mat-icon>add</mat-icon>
+                                                    </button>
+                                                    <mat-menu #size="matMenu">
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Large</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Medium</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Small</button>
+                                                    </mat-menu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                            <div class="erg-menu__menu-item erg-menu__menu-item__border">
+                                                <div class="erg-menu__menu-item__title">
+                                                    <div class="heading">Bacon & Egg Sandwich</div>
+                                                    <div class="erg-menu__menu-item__title__text">Bacon &
+                                                        Egg SandwichBacon & Egg SandwichBacon & Egg Sandwich
+                                                    </div>
+                                                    <div class="erg-menu__menu-item__price">LKR590.00</div>
+                                                </div>
+                                                <div class="heading">
+                                                    <button class="shadow_none" mat-mini-fab color="primary"
+                                                        [matMenuTriggerFor]="size">
+                                                        <mat-icon>add</mat-icon>
+                                                    </button>
+                                                    <mat-menu #size="matMenu">
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Large</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Medium</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Small</button>
+                                                    </mat-menu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                            <div class="erg-menu__menu-item erg-menu__menu-item__border">
+                                                <div class="erg-menu__menu-item__title">
+                                                    <div class="heading">Bacon & Egg Sandwich</div>
+                                                    <div class="erg-menu__menu-item__title__text">Bacon &
+                                                        Egg SandwichBacon & Egg SandwichBacon & Egg Sandwich
+                                                    </div>
+                                                    <div class="erg-menu__menu-item__price">LKR590.00</div>
+                                                </div>
+                                                <div class="heading">
+                                                    <button class="shadow_none" mat-mini-fab color="primary"
+                                                        [matMenuTriggerFor]="size">
+                                                        <mat-icon>add</mat-icon>
+                                                    </button>
+                                                    <mat-menu #size="matMenu">
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Large</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Medium</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Small</button>
+                                                    </mat-menu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                            <div class="erg-menu__menu-item erg-menu__menu-item__border">
+                                                <div class="erg-menu__menu-item__title">
+                                                    <div class="heading">Bacon & Egg Sandwich</div>
+                                                    <div class="erg-menu__menu-item__title__text">Bacon &
+                                                        Egg SandwichBacon & Egg SandwichBacon & Egg Sandwich
+                                                    </div>
+                                                    <div class="erg-menu__menu-item__price">LKR590.00</div>
+                                                </div>
+                                                <div class="heading">
+                                                    <button class="shadow_none" mat-mini-fab color="primary"
+                                                        [matMenuTriggerFor]="size">
+                                                        <mat-icon>add</mat-icon>
+                                                    </button>
+                                                    <mat-menu #size="matMenu">
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Large</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Medium</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Small</button>
+                                                    </mat-menu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                            <div class="erg-menu__menu-item erg-menu__menu-item__border">
+                                                <div class="erg-menu__menu-item__title">
+                                                    <div class="heading">Bacon & Egg Sandwich</div>
+                                                    <div class="erg-menu__menu-item__title__text">Bacon &
+                                                        Egg SandwichBacon & Egg SandwichBacon & Egg Sandwich
+                                                    </div>
+                                                    <div class="erg-menu__menu-item__price">LKR590.00</div>
+                                                </div>
+                                                <div class="heading">
+                                                    <button mat-mini-fab color="primary" class="shadow_none"
+                                                        [matMenuTriggerFor]="size">
+                                                        <mat-icon>add</mat-icon>
+                                                    </button>
+                                                    <mat-menu #size="matMenu">
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Large</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Medium</button>
+                                                        <button mat-menu-item
+                                                            (click)="addToBasket()">Small</button>
+                                                    </mat-menu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Al Carte Menu"> Content 2 </mat-tab>
+                <mat-tab label="Beverage Menu"> Content 3 </mat-tab>
+            </mat-tab-group-->
+        </div>
+    </div>
+
+
+</section>

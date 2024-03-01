@@ -1,0 +1,140 @@
+<mat-drawer-container class="example-container" autosize>
+
+
+  <div class="example-sidenav-content">
+    <div class="container confirmation-page">
+
+      <section>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg 6 mb-4">
+            <div class="flex-container flex-container--row">
+              <h1 class="padding--bottom-m">Successfully Reserved</h1>
+              <div *ngIf="!reservationLoading">{{productInfo.name}} for {{reservation.headCount | numbersToWords}}
+                people on {{reservation.date | ordinalDate}} at {{reservation.time | opTime}} to
+                {{bookingEndTime | opTime}} <ng-container *ngIf="bookingEndDate">on {{bookingEndDate | ordinalDate}}
+                </ng-container>
+              </div>
+              <div class="padding--bottom-s">{{productInfo.basedLocation.name}}, Sri Lanka</div>
+              <h6 class="padding--bottom-s">What To Know Before You Go!</h6>
+              <p>A note from the restaurant</p>
+              <p class="secondary-text">{{productInfo.bookingNote}}</p>
+              <mat-form-field class="input-type-1 input-type-1--warn hasbutton coupon_input" appearance="outline">
+                <input matInput placeholder="Ex. pat@example.com">
+                <button matSuffix mat-flat-button color="warn">Add Coupon</button>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6  mb-4">
+            <div class="map-container" *ngIf="center.lat > 0">
+              <google-map height="400px" width="100%" [center]="center">
+                <map-marker [position]="center"></map-marker>
+              </google-map>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <hr>
+      <app-menu (choiceSelected)="choiceSelectedHandler($event)"></app-menu>
+    </div>
+  </div>
+  <mat-drawer #drawer class="example-sidenav" mode="side" position="end" style="position: fixed; top: 56px" (openedChange)="onOpenedChange($event)">
+    <div class="orderContainer">
+      <div class="orderContainer__header">
+        <div class="">Order Summary</div>
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+          (click)="drawer.toggle()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </div>
+      <div class="orderContainer__content" style="overflow-y: scroll">
+        <div class="widget-spinner" *ngFor="let choice of selectedChoices">
+            <div class="labelWrapper">
+              <div class="label label--primary">{{choice.name}}</div>
+              <div class="label label--primary">{{choice.price | currency: choice.currency:true }}</div>
+              <div class="label label--secondary">{{choice.size}}</div>
+            </div>
+            <div class="spinnerWrapper">
+              <div class="widgets-numberpicker__flipper">
+                <button mat-icon-button class="erg-btn erg-btn-opBtn erg-btn--small"
+                  (click)="changeQuantity(choice.choiceId, choice.size , false)">
+                  <mat-icon>remove</mat-icon>
+                </button>
+              </div>
+              <div class="numberpicker__flipper-value">{{choice.quantity}}</div>
+              <div class="widgets-numberpicker__flipper">
+                <button mat-icon-button class="erg-btn erg-btn-opBtn erg-btn--small"
+                  (click)="changeQuantity(choice.choiceId, choice.size , true)">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </div>
+
+
+        </div>
+        <!--div class="widget-spinner">
+                    <div class="labelWrapper">
+                        <div class="label label--primary">Bacon & Egg Sandwich</div>
+                        <div class="label label--primary">LKR 5000.00</div>
+                        <div class="label label--secondary">Small</div>
+                    </div>
+                    <div class="spinnerWrapper">
+                        <div class="widgets-numberpicker__flipper">
+                            <button mat-icon-button class="erg-btn erg-btn-opBtn erg-btn--small">
+                                <mat-icon>remove</mat-icon>
+                            </button>
+                        </div>
+                        <div class="numberpicker__flipper-value">1</div>
+                        <div class="widgets-numberpicker__flipper">
+                            <button mat-icon-button class="erg-btn erg-btn-opBtn erg-btn--small">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-spinner">
+                    <div class="labelWrapper">
+                        <div class="label label--primary">Bacon & Egg Sandwich</div>
+                        <div class="label label--primary">LKR 5000.00</div>
+                        <div class="label label--secondary">Small</div>
+                    </div>
+                    <div class="spinnerWrapper">
+                        <div class="widgets-numberpicker__flipper">
+                            <button mat-icon-button class="erg-btn erg-btn-opBtn erg-btn--small">
+                                <mat-icon>remove</mat-icon>
+                            </button>
+                        </div>
+                        <div class="numberpicker__flipper-value">1</div>
+                        <div class="widgets-numberpicker__flipper">
+                            <button mat-icon-button class="erg-btn erg-btn-opBtn erg-btn--small">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div-->
+
+
+      </div>
+      <div class="orderContainer__footer" >
+        <div class="">
+          <div class="orderContainer__footer__text--secondary">{{selectedChoices.length}} Items</div>
+          <div class="">{{totalAmount | currency: productInfo.amountCurrency:true}}</div>
+        </div>
+
+        <button mat-flat-button color="warn" aria-label="Example icon button with a vertical three dot icon"
+        (click)="addOrders()">
+          <!--mat-icon>keyboard_arrow_right</mat-icon-->
+          Place Order
+        </button>
+      </div>
+    </div>
+
+  </mat-drawer>
+</mat-drawer-container>
+
+<div class="floating_basket_btn_container" [hidden]="isDrawerOpened">
+  <button mat-fab color="warn" (click)="drawer.toggle()" id="cart-button" matBadge="8" matBadgePosition="after"
+    matBadgeColor="primary" class="extended-fab">
+    <mat-icon>shopping_cart</mat-icon><span class="extended-fab__label">Cart</span>
+  </button>
+</div>

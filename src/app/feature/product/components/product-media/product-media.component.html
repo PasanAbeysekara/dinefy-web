@@ -1,0 +1,28 @@
+<div class="section" *appScrollSection="true; id:'Media'; title: 'Media'">
+    <div class="margin--top-l">
+        <div class="c-title c-title--border">
+            <div class="c-title--primary c-title--medium">Media</div>
+            <button mat-button color="primary" (click)="seeAll()">See All</button>
+        </div>
+
+        <div class="row item-row margin--top-l">
+            <div class="col-12">
+                <ng-container *ngIf="imageObject.length > 0">
+                        <ng-image-slider videoAutoPlay=true [animationSpeed]="0.3" [imageSize]="{space: 4}" slideImage="1"
+                        [infinite]="true" [autoSlide]="1" [images]="imageObject" [imagePopup]="true" #nav></ng-image-slider>
+                </ng-container>
+                
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="indexImageObject.length > 0">
+    <ng-image-fullscreen-view
+    [images]="indexImageObject" [show]="isIndexImageShowing" (close)="closeIndexImageHandler()"></ng-image-fullscreen-view>
+</ng-container>
+
+    
+
+

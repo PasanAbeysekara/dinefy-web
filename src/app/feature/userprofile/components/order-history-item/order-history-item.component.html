@@ -1,0 +1,60 @@
+<div  #reservationItem class="reservation-item">
+    <div class="reservation-item__details">
+      <div class="reservation-item__avatar">
+        <img src="https://cf.bstatic.com/images/hotel/max1024x768/170/170102675.jpg" alt="avatar">
+      </div>
+      <div class="reservation-item__label-wrapper">
+        <div class="body-typo-one body-typo-one--medium reservation-item__title">{{ model.name }}</div>
+        <div class="body-typo-one">
+          <span class="body-typo-one--medium">{{ model.date }}</span>&nbsp;<span class="body-typo-one--secondary">{{model.time}}, {{model.user}}</span>
+        </div>
+        <div class="reservation-item__price">{{model.price}}</div>
+        <div class="subtitle-two subtitle-two--secondary mb-xs">{{model.paxCount}}</div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="flex-box-container flex-box-container--spaced flex-box-container--veticle-center pl-sm pr-sm">
+      <div class="flex-box-container">
+        <button mat-icon-button color="">
+          <mat-icon>share</mat-icon>
+        </button>
+        <button mat-icon-button color="">
+          <mat-icon>save</mat-icon>
+        </button>
+        <button mat-icon-button color="">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <button mat-flat-button color="primary">Book Again</button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="flex-box-container flex-box-container--spaced flex-box-container--veticle-center">
+      <div class="btn-list">
+        <button mat-button color="warn">Add a review</button>
+      </div>
+      <div class="pl-md pr-md">
+        <button mat-icon-button color="warn" (click)="openReviewCommentDialog()">
+          <mat-icon  color="warn">star_border</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="openReviewCommentDialog()">
+          <mat-icon  color="warn">star_border</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="openReviewCommentDialog()">
+          <mat-icon  color="warn">star_border</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="openReviewCommentDialog()">
+          <mat-icon  color="warn">star_border</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="openReviewCommentDialog()">
+          <mat-icon  color="warn">star_border</mat-icon>
+        </button>
+      </div>
+    </div>
+    <ng-container *ngIf="model.reviewComment">
+      <mat-divider></mat-divider>
+      <div class="pl-md pr-md pt-sm pb-sm body-typo-two body-typo-two--secondary" >
+        {{ model.reviewComment}}
+      </div>
+    </ng-container>
+</div>
+

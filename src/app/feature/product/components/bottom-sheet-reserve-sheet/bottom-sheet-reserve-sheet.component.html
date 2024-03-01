@@ -1,0 +1,98 @@
+<div class="filtersSheet__header">
+    <button mat-icon-button (click)="closeSheet()">
+        <mat-icon>clear</mat-icon>
+    </button>
+    <div class="c-title c-title--primary c-title--center">Reserve your space</div>
+    <button mat-stroked-button>Clear</button>
+</div>
+<div class="formFieldContainer formFieldContainer--small search_widget">
+    <div class="search_widget_container">
+
+
+        <mat-card-content class="formContainer" id="formContainer">
+            <div class="c-label">Date & Time</div>
+            <div class="input-group search-widget-input mb-3">
+                <div class="input-group-prepend">
+                    <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+                </div>
+                <input (click)="myDatepicker.open()" class="form-control" [matDatepicker]="myDatepicker" (dateInput)="onDate($event)">
+                <mat-datepicker #myDatepicker></mat-datepicker>
+            </div>
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="c-label">Party Size</div>
+                    <div class="input-group search-widget-input mb-3" [matMenuTriggerFor]="menu">
+                        <div class="input-group-prepend">
+                            <button mat-icon-button>
+                                <mat-icon>people</mat-icon>
+                            </button>
+                        </div>
+                        <!--        <div class="half-circle half-circle&#45;&#45;left"></div>-->
+                        <input type="text" class="form-control" placeholder="2 People" aria-label="destination"
+                            aria-describedby="basic-addon1" [(ngModel)]="reservation.headCount">
+
+                    </div>
+                    <mat-menu #menu="matMenu" class="mat-menu-panel-custom">
+                        <app-input-spinner (click)="$event.stopPropagation()" (capacityChanged)="capacityChangedHandler($event)"></app-input-spinner>
+                    </mat-menu>
+
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="c-label">Seat Type</div>
+                    <div class="input-group mb-3" >
+                        <mat-button-toggle-group name="type">
+                            <mat-button-toggle *ngFor="let type of availabiltyUnitTypes; let i = index" (click)="setItems(type)" value="type" [ngStyle]="{'width': availabilityUnitTypeButtonWidth}" [checked]="i == 0 ? true : false">{{type | titlecase}}</mat-button-toggle>
+            
+                          </mat-button-toggle-group>
+
+                    </div>
+                    <!--mat-menu #menu="matMenu" class="mat-menu-panel-custom">
+                        <div class="filter-bar">
+                            <mat-chip-list class="filter-chip-list">
+                                <button class="filter-chip filter-chip--square" mat-button>Room</button>
+                                <button class="filter-chip filter-chip--square" mat-button>Booth</button>
+                                <button class="filter-chip filter-chip--square" mat-button>Hall</button>
+                            </mat-chip-list>
+                        </div>
+                    </mat-menu-->
+                </div>
+            </div>
+            <div class="c-label">Availabilities</div>
+            <div class="input-group search-widget-input mb-3 " [matMenuTriggerFor]="autoSugggest">
+                <div class="input-group-prepend">
+                    <mat-icon>trip_origin</mat-icon>
+                </div>
+                <input type="text" class="form-control" placeholder="What are you looking for ?"
+                    aria-label="destination" aria-describedby="basic-addon1" [(ngModel)]="selectedAvailUnit">
+
+            </div>
+            <mat-menu #autoSugggest="matMenu" class="autoList customScroll">
+                <button mat-menu-item *ngFor="let item of selectedAvailabilityUnits" (click)="selectAvailUnit(item.propAvailabilityUnitId.unit_id)">{{item.name ? item.name : item.sysAvailabilityUnit.name}} </button>
+                <!--button mat-menu-item>Item 2</button-->
+            </mat-menu>
+            <div class="c-label">Start From</div>
+            <div class="timeSlots">
+                <mat-chip-list class="timeSlotsList" multiple>
+                    <ng-container *ngFor="let time of timeSlots"  #timeSlotsOuter>
+                            <mat-chip class="timeSlotchip" [ngClass]="{'timeSlotchip--default': time != reservation.time }" (click)="setReservationTimeSlot(time)">{{time | opTime}}</mat-chip>
+                            
+                    </ng-container>
+
+                    <ng-container *ngIf="showViewMore">
+                            <mat-chip class="timeSlotchip timeSlotchip--more" (click)="viewMore()"> More...</mat-chip>
+
+                    </ng-container>
+
+                    <ng-container *ngIf="!showViewMore">
+                            <mat-chip class="timeSlotchip timeSlotchip--more" (click)="showLess()"> Less...</mat-chip>
+
+                    </ng-container>
+                </mat-chip-list>
+            </div>
+        </mat-card-content>
+
+        <button class="erg-btn erg-btn--full-width" mat-flat-button color="warn" (click)="reserve()">Make A
+            Reservation
+        </button>
+    </div>
+</div>

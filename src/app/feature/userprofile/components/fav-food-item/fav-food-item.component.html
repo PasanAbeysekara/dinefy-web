@@ -1,0 +1,16 @@
+<!--div class="col-12 col-sm-12 col-md-6 col-lg-3"-->
+  <div class="fav-item-food">
+    <button mat-icon-button class="fav-item-food__fav-button">
+      <mat-icon color="warn">favorite</mat-icon>
+    </button>
+    <div class="fav-item-food__avatar">
+      <img [src]="favFoodItem.image" alt="avatar">
+    </div>
+    <div class="fav-item-food__label-wrapper">
+      <div class="fav-item-food__label-primary body-typo-one body-typo-one--medium">{{favFoodItem.name}}</div>
+      <div class="fav-item-food__label-secondary subtitle-two subtitle-two--secondary">{{favFoodItem.restaurent}}</div>
+      <app-rating-stars></app-rating-stars>
+      <div class="fav-item-food__label-description subtitle-two subtitle-two--secondary pt-xs pb-xs">{{favFoodItem.description}}</div>
+    </div>
+  </div>
+<!--/div-->

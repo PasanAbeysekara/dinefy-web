@@ -1,0 +1,97 @@
+<div class="search-page">
+    <button mat-fab color="warn" class="filters-toogle" (click)="openBottomSheet()">
+        <mat-icon>filter_alt</mat-icon>
+    </button>
+    <section class="masthead search_widget search_widget--fixed">
+        <div class="c-card c-search-form form-list search_widget">
+            <div class="container">
+                <div class="widgetHere">
+                    <app-search-widget></app-search-widget>
+                </div>
+            </div>
+            <app-filter></app-filter>
+        </div>
+    </section>
+    <section class="search-results-container">
+        <div class="container">
+            <div class="row item-row">
+                <div class="col-12 itemRow__title">
+                    <div class="title--primary">20 Results Found</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                            <div *ngIf = "ResultArray" infiniteScroll = "true" [infiniteScrollDistance] = "2" [infiniteScrollThrottle] = "50" (scrolled)="onScroll()">
+                                <app-search-result *ngFor="let searchType of ResultArray" [model]="searchType"></app-search-result>
+                            </div>
+                    <div matRipple class="item-wrapper">
+                        <div class="Ab08je">
+
+                            <div class="imageWrapper">
+
+                                <div class="imageWrapperInner">
+
+                                    <div class="SJyhnc">
+
+                                        <div class="zfeKmf">
+                                            <ngx-skeleton-loader [theme]="{ height: '200px',width: '200px'}" count="1"
+                                                animation="pulse"></ngx-skeleton-loader>
+                                            <img class="itemImage" src="" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contentWrapper">
+                                <div class="itemDetails">
+                                    <div class="row1">
+                                        <div class="labelsWrapper">
+                                            <ngx-skeleton-loader count="1" animation="pulse"
+                                                [theme]="{ width: '150px'}"></ngx-skeleton-loader>
+                                            <div class="name">
+                                                <ngx-skeleton-loader count="1" animation="pulse"
+                                                    [theme]="{ width: '250px'}"></ngx-skeleton-loader>
+                                            </div>
+                                            <div class="locations">
+                                                <ngx-skeleton-loader count="1" animation="pulse"
+                                                    [theme]="{ width: '170px'}"></ngx-skeleton-loader>
+                                            </div>
+                                        </div>
+                                        <div class="priceWrapper">
+                                            <div class="currencyWrapper">
+                                                <div class="currency">
+                                                    <ngx-skeleton-loader count="1" animation="pulse"
+                                                        [theme]="{ width: '100px'}"></ngx-skeleton-loader>
+                                                </div>
+                                                <div class="value">
+                                                    <ngx-skeleton-loader count="1" animation="pulse"
+                                                        [theme]="{ width: '50px'}"></ngx-skeleton-loader>
+                                                </div>
+                                            </div>
+                                            <div class="ratio">
+                                                <ngx-skeleton-loader count="1" animation="pulse"
+                                                    [theme]="{ width: '800px'}"></ngx-skeleton-loader>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row2 line-clamp line-clamp-3"></div>
+                                    <div class="row3">
+                                        <div class="timeSlots">
+                                            <mat-chip-list class="timeSlotsList">
+                                                <ngx-skeleton-loader count="1" animation="pulse"></ngx-skeleton-loader>
+                                                <ngx-skeleton-loader count="1" animation="pulse"></ngx-skeleton-loader>
+                                                <ngx-skeleton-loader count="1" animation="pulse"></ngx-skeleton-loader>
+                                            </mat-chip-list>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="itemPriceDetails">
+                                    <ngx-skeleton-loader count="1" animation="pulse"></ngx-skeleton-loader>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,9 @@
+<div class="main-image-slider">
+    <owl-carousel-o [options]="customSlider" #mainImageSlider>
+        <ng-container *ngFor="let mainImage of mainImagesArray">
+            <ng-template class="slide" carouselSlide [id]="mainImage.id">
+                <img class="main-image-slide" [src]="mainImage.imgUrl">
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>

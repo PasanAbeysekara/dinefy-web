@@ -1,0 +1,31 @@
+<div class="section" *appScrollSection="true; id:'facilities'; title: 'Facilities'">
+    <div class="">
+        <div class="c-title c-title--border">
+            <div class="c-title--primary c-title--medium">Facilities</div>
+        </div>
+        <div class="container-fluid ">
+            <div class=" facilitiesWrapper margin--top-l">
+                <div class="facilitiesItem" *ngFor = "let facility of facilities$">
+                    <mat-icon color="accent" class="facilitiesItem__icon">{{facility.sysFacility.icon}}</mat-icon>
+                    <div class="">{{ facility.name == null ? facility.sysFacility.name : facility.name }}</div>
+                </div>
+                <!-- <div class="facilitiesItem">
+                    <mat-icon color="accent" class="facilitiesItem__icon">family_restroom</mat-icon>
+                    <div class="">family_restroom</div>
+                </div>
+                <div class="facilitiesItem">
+                    <mat-icon color="accent" class="facilitiesItem__icon">wifi</mat-icon>
+                    <div class="">Free Wifi</div>
+                </div>
+                <div class="facilitiesItem">
+                    <mat-icon color="accent" class="facilitiesItem__icon">local_parking</mat-icon>
+                    <div class="">Free Parking</div>
+                </div>
+                <div class="facilitiesItem">
+                    <mat-icon color="accent" class="facilitiesItem__icon">smoke_free</mat-icon>
+                    <div class="">No Smoking</div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

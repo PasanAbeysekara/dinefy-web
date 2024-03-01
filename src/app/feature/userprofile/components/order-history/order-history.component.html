@@ -1,0 +1,11 @@
+<mat-grid-list [cols]="cols"
+               [rowHeight]="rowHeight"
+               [gutterSize]="gutterSize+'px'">
+  <mat-grid-tile *ngFor="let reservationHistoryItem of reservationHistory"
+  [rowspan]="item.rows">
+    <app-order-history-item #item class="w-100"
+                            [model]="reservationHistoryItem"
+                            [rowHeight]="tileHeight"
+                            [gutterSize]="gutterSize"></app-order-history-item>
+  </mat-grid-tile>
+</mat-grid-list>

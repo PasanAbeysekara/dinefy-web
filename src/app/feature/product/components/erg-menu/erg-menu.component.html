@@ -1,0 +1,18 @@
+<div class="flex-box --spaced">
+    <h2 mat-dialog-title>Menu</h2>
+    <button mat-icon-button [mat-dialog-close]="true">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+  
+  <mat-dialog-content class="mat-typography">
+    <div class="erg-menu erg-menu--no-padding ">
+        <app-shared-product-menu type="product" [menus]="menus"></app-shared-product-menu>
+      
+    </div>
+  </mat-dialog-content>
+  <!--<mat-dialog-actions align="end">-->
+  <!--  <button mat-button mat-dialog-close>Cancel</button>-->
+  <!--  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>-->
+  <!--</mat-dialog-actions>-->
+  

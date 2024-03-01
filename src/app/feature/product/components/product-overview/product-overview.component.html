@@ -1,0 +1,54 @@
+<ng-container *ngIf="isDataLoaded">
+  <div *appScrollSection="true; id:'overview'; title: 'Overview'" class="section">
+    <div class="titleRow">
+      <div class="title">
+        {{ productOverview.name }}
+      </div>
+      <div class="location">{{productOverview.basedLocation.name}}, , Sri Lanka </div>
+      <!-- {{productOverview.basedLocation.state[0].name}} {{productOverview.basedLocation.state.country[0].name}} -->
+      <div class="row padding--bottom-m">
+        <div class="col-12 erg-icon-row">
+          <ng-container *ngFor="let facility of topFacilities, let i = index">
+            <mat-icon color="accent" class="erg-icon-row__item" *ngIf="i !== 0">{{facility}}</mat-icon>
+          </ng-container>
+
+
+          <!--mat-icon color="accent" class="erg-icon-row__item">wifi</mat-icon>
+                <mat-icon color="accent" class="erg-icon-row__item">free_breakfast</mat-icon>
+                <mat-icon color="accent" class="erg-icon-row__item">local_bar</mat-icon>
+                <mat-icon color="accent" class="erg-icon-row__item">restaurant_menu</mat-icon-->
+        </div>
+      </div>
+      <app-rating-stars [rating]="avgRating" [total] = "totalRatings"></app-rating-stars>
+      <div class="priceRow">
+        <div class="price">{{productOverview.amount | currency: productOverview.amountCurrency:true }}</div>
+        <div class="ratio">&nbsp;/ {{productOverview.amountCondition}}</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 filter-bar">
+        <mat-chip-list class="filter-chip-list">
+          <ng-container *ngFor="let tag of topTags, let i = index">
+            <button class="filter-chip" *ngIf="i !== 0" mat-button>{{tag}}</button>
+          </ng-container>
+          <!--div *ngFor="let tag of tagsList">
+                    <button class="filter-chip" mat-button>{{tag}}</button>
+                </div-->
+        </mat-chip-list>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 description">
+        <p>{{(showMore) ? productOverview.description : productOverview.description | slice:0:800}}<span
+            *ngIf="!showMore">...</span></p>
+      </div>
+      <div class="col-12 flex-container flex-container--center">
+        <button *ngIf="!showMore" (click)="showMore=true" mat-stroked-button class="">Show
+          More</button>
+        <button *ngIf="showMore" (click)="showMore=false" mat-stroked-button class="">Show
+          less</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

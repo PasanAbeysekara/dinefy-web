@@ -1,0 +1,42 @@
+<div class="facilitiesListWrapper">
+  <div class="facilitiesItem">
+    <mat-icon color="accent" class="facilitiesItem__icon">local_offer</mat-icon>
+    <div class="facilitiesItem__titleWrapper">
+      <div class="facilitiesItem__title">Tags</div>
+      <div class="facilitiesItem__subTitle"><span
+          *ngFor="let tag of tags; let last = last">{{tag.name == null ? tag.sysTags.name : tag.name}} <span *ngIf="!last">,  </span></span></div>
+    </div>
+  </div>
+  <div class="facilitiesItem">
+    <mat-icon color="accent" class="facilitiesItem__icon">food_bank</mat-icon>
+    <div class="facilitiesItem__titleWrapper">
+      <div class="facilitiesItem__title">Cuisines</div>
+      <div class="facilitiesItem__subTitle"><span *ngFor="let cuisine of cuisines; let last = last">{{cuisine.name}} <span *ngIf="!last">,  </span></span></div>
+    </div>
+  </div>
+  <div class="facilitiesItem">
+    <mat-icon color="accent" class="facilitiesItem__icon">av_timer</mat-icon>
+    <div class="facilitiesItem__titleWrapper">
+      <div class="facilitiesItem__title">Hours of operation</div>
+      <div *ngFor="let opHour of operationHours">
+        <div class="facilitiesItem__subTitle">{{opHour.name}}</div>
+        <div class="facilitiesItem__subTitle">{{opHour.timeStart | opTime}} – {{opHour.timeEnd | opTime}}</div>
+      </div>
+
+
+      <!--div class="facilitiesItem__subTitle">Lunch Buffet</div>
+            <div class="facilitiesItem__subTitle">Daily 12:00 pm – 2:30 pm</div>
+            <div class="facilitiesItem__subTitle">Endless High Tea</div>
+            <div class="facilitiesItem__subTitle">Daily 3:00 pm – 5:00 pm</div>
+            <div class="facilitiesItem__subTitle">Dinner Buffet</div>
+            <div class="facilitiesItem__subTitle">Daily 7:00 pm–10:30 pm</div-->
+    </div>
+  </div>
+  <div class="facilitiesItem">
+    <mat-icon color="accent" class="facilitiesItem__icon">payments</mat-icon>
+    <div class="facilitiesItem__titleWrapper">
+      <div class="facilitiesItem__title">Payment options</div>
+      <div class="facilitiesItem__subTitle"><span *ngFor="let option of paymentOptions; let last = last">{{option.name}} <span *ngIf="!last">,  </span></span></div>
+    </div>
+  </div>
+</div>

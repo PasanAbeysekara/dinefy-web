@@ -1,0 +1,113 @@
+<div class="row mt-xl">
+    <div class="col-12">
+      <div class="c-title c-title--primary c-title--medium">Favourite Food</div>
+      <mat-divider class="pt-md pb-md"></mat-divider>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3" *ngFor="let food of favFoods">
+      <app-fav-food-item [favFoodItem]="food"></app-fav-food-item>
+      <!--div class="fav-item-food">
+        <button mat-icon-button class="fav-item-food__fav-button">
+          <mat-icon color="warn">favorite</mat-icon>
+        </button>
+        <div class="fav-item-food__avatar">
+          <img src="https://driscolls.imgix.net/-/media/assets/recipes/classic-strawberry-shortcake-recipe.ashx" alt="avatar">
+        </div>
+        <div class="fav-item-food__label-wrapper">
+          <div class="fav-item-food__label-primary body-typo-one body-typo-one--medium">Driscoll's Classic Strawberry Shortcake</div>
+          <div class="fav-item-food__label-secondary subtitle-two subtitle-two--secondary">Chinese Restaurent</div>
+          <app-rating-stars></app-rating-stars>
+          <div class="fav-item-food__label-description subtitle-two subtitle-two--secondary pt-xs pb-xs">Heavy cream, baking soda, baking powder, all purpose flour, vanilla extract</div>
+        </div>
+      </div-->
+    </div>
+    <!--div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <div class="fav-item-food">
+        <button mat-icon-button class="fav-item-food__fav-button">
+          <mat-icon color="warn">favorite</mat-icon>
+        </button>
+        <div class="fav-item-food__avatar">
+          <img src="https://whiskeyinthejar.pl/www/wp-content/uploads/2017/08/whiskey_old_fashioned_jar_maly_na_strone_2017.07.27.jpg" alt="avatar">
+        </div>
+        <div class="fav-item-food__label-wrapper">
+          <div class="fav-item-food__label-primary body-typo-one body-typo-one--medium">WHISKEY IN THE JAR, Wroclaw </div>
+          <div class="fav-item-food__label-secondary subtitle-two subtitle-two--secondary">Chinese Restaurent</div>
+          <app-rating-stars></app-rating-stars>
+          <div class="fav-item-food__label-description subtitle-two subtitle-two--secondary pt-xs pb-xs">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <div class="fav-item-food">
+        <button mat-icon-button class="fav-item-food__fav-button">
+          <mat-icon color="warn">favorite</mat-icon>
+        </button>
+        <div class="fav-item-food__avatar">
+          <img src="https://img.taste.com.au/mz48WLZC/w643-h428-cfill-q90/taste/2016/11/easy-green-superfood-salad-68411-1.jpeg" alt="avatar">
+        </div>
+        <div class="fav-item-food__label-wrapper">
+          <div class="fav-item-food__label-primary body-typo-one body-typo-one--medium">
+            Taste
+            Easy green superfood salad</div>
+          <div class="fav-item-food__label-secondary subtitle-two subtitle-two--secondary">Chinese Restaurent</div>
+          <app-rating-stars></app-rating-stars>
+          <div class="fav-item-food__label-description subtitle-two subtitle-two--secondary pt-xs pb-xs">Broccoli, apple cider vinegar, pumpkin seeds, chia seeds, sunflower seeds.</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <div class="fav-item-food">
+        <button mat-icon-button class="fav-item-food__fav-button">
+          <mat-icon color="warn">favorite</mat-icon>
+        </button>
+        <div class="fav-item-food__fav-button">
+          <mat-icon color="warn">favorite</mat-icon>
+        </div>
+        <div class="fav-item-food__avatar">
+          <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190313-creamy-lemon-parmesan-chicken-horizontal-1553026901.png" alt="avatar">
+        </div>
+        <div class="fav-item-food__label-wrapper">
+          <div class="fav-item-food__label-primary body-typo-one body-typo-one--medium">Roast chicken </div>
+          <div class="fav-item-food__label-secondary subtitle-two subtitle-two--secondary">Chinese Restaurent</div>
+          <app-rating-stars></app-rating-stars>
+          <div class="fav-item-food__label-description subtitle-two subtitle-two--secondary pt-xs pb-xs">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <div class="fav-item-food">
+        <button mat-icon-button class="fav-item-food__fav-button">
+          <mat-icon color="warn">favorite</mat-icon>
+        </button>
+        <div class="fav-item-food__avatar">
+          <img src="https://www.dinneratthezoo.com/wp-content/uploads/2018/10/roasted-chicken-4.jpg" alt="avatar">
+        </div>
+        <div class="fav-item-food__label-wrapper">
+          <div class="fav-item-food__label-primary body-typo-one body-typo-one--medium">Driscoll's Classic Strawberry Shortcake</div>
+          <div class="fav-item-food__label-secondary subtitle-two subtitle-two--secondary">Chinese Restaurent</div>
+          <app-rating-stars></app-rating-stars>
+          <div class="fav-item-food__label-description subtitle-two subtitle-two--secondary pt-xs pb-xs">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <div class="fav-item-food">
+        <button mat-icon-button class="fav-item-food__fav-button">
+          <mat-icon color="warn">favorite</mat-icon>
+        </button>
+        <div class="fav-item-food__fav-button">
+          <mat-icon color="warn">favorite</mat-icon>
+        </div>
+        <div class="fav-item-food__avatar">
+          <img src="https://whiskeyinthejar.pl/www/wp-content/uploads/2017/08/whiskey_old_fashioned_jar_maly_na_strone_2017.07.27.jpg" alt="avatar">
+        </div>
+        <div class="fav-item-food__label-wrapper">
+          <div class="fav-item-food__label-primary body-typo-one body-typo-one--medium">WHISKEY IN THE JAR, Wroclaw </div>
+          <div class="fav-item-food__label-secondary subtitle-two subtitle-two--secondary">Chinese Restaurent</div>
+          <app-rating-stars></app-rating-stars>
+          <div class="fav-item-food__label-description subtitle-two subtitle-two--secondary pt-xs pb-xs">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
+        </div>
+      </div>
+    </div-->
+  </div>
